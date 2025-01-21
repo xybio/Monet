@@ -1,11 +1,11 @@
 #' Parse GSE Metadata
 #'
-#' Parse metadata from a GSE soft file.
+#' Parse soft file from a GSE soft file.
 #'
 #' @param file_path The path to the GSE soft file.
 #' @return A data frame containing the parsed GSE metadata.
 #' @export
-ParseGSEMetadata <- function(file_path) {
+ParseGSESoft <- function(file_path) {
   file_content <- readLines(file_path)
   metadata <- list()
   
@@ -25,12 +25,12 @@ ParseGSEMetadata <- function(file_path) {
 
 #' Parse GSM Metadata
 #'
-#' Parse metadata from a GSM soft file.
+#' Parse soft file from a GSM soft file.
 #'
 #' @param file_path The path to the GSM soft file.
 #' @return A data frame containing the parsed GSM metadata.
 #' @export
-ParseGSMMeta <- function(file_path) {
+ParseGSMSoft <- function(file_path) {
   file_content <- readLines(file_path)
   metadata <- list()
   
