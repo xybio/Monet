@@ -8,7 +8,7 @@
 #' @param misc Additional information.
 #' @return A Monet object.
 #' @export
-createMonetObject <- function(assays = list(), meta.data = list(), active.assay = NULL, misc = list()) {
+CreateMonetObject <- function(assays = list(), meta.data = list(), active.assay = NULL, misc = list()) {
   monet_object <- list(
     assays = assays,
     meta.data = list(

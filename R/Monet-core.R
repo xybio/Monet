@@ -2,7 +2,7 @@
 #'
 #' @param obj A Monet object.
 #' @export
-printMonet <- function(obj) {
+ViewMonet <- function(obj) {
   cat("Monet Object\n")
   cat("Number of GSM Samples:", length(obj$assays), "\n")
   if (!is.null(obj$meta.data$gse.index)) {
