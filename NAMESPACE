@@ -2,6 +2,7 @@
 
 export(AddGSEData)
 export(AddGSMData)
+export(AddGSEMData)
 export(AddPMCData)
 export(CreateMonetObject)
 export(GetGSEMetadata)
