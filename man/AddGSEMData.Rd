@@ -2,20 +2,20 @@
 % Please edit documentation in R/Monet-metadata.R
 \name{AddGSEMData}
 \alias{AddGSEMData}
-\title{Add GSEM Data to Monet Object}
+\title{Add GSEM Data to Monet Object (Append)}
 \usage{
-AddGSEMData(monet_object, id.gse, id.gsm)
+AddGSEMData(monet_object, gse_id, gsm_ids)
 }
 \arguments{
 \item{monet_object}{A Monet object.}
 
-\item{id.gse}{The GSE ID.}
+\item{gse_id}{The GSE ID to be added.}
 
-\item{id.gsm}{A vector of GSM IDs to associate with the GSE.}
+\item{gsm_ids}{A vector of GSM IDs to be associated with the GSE.}
 }
 \value{
-The updated Monet object.
+Updated Monet object with the appended GSE-GSM mapping.
 }
 \description{
-Add GSM IDs under a GSE in the Monet object.
+Add GSE and GSM mapping to the Monet object, appending to existing data.
 }
