@@ -56,27 +56,29 @@ GetGSMMetadata <- function(monet_object, gsm_id = NULL) {
   subset(monet_object$meta.data$gsm.index, GSM_ID == gsm_id)
 }
 
-#' Add GSEM Data to Monet Object
+#' Add GSEM Data to Monet Object (Append)
 #'
-#' Add GSM IDs under a GSE in the Monet object.
+#' Add GSE and GSM mapping to the Monet object, appending to existing data.
 #'
 #' @param monet_object A Monet object.
-#' @param id.gse The GSE ID.
-#' @param id.gsm A vector of GSM IDs to associate with the GSE.
-#' @return The updated Monet object.
+#' @param gse_id The GSE ID to be added.
+#' @param gsm_ids A vector of GSM IDs to be associated with the GSE.
+#' @return Updated Monet object with the appended GSE-GSM mapping.
 #' @export
-AddGSEMData <- function(monet_object, id.gse, id.gsm) {
-    # 检查 GSE 是否已存在于 gsem.map
-    if (is.null(monet_object$meta.data$gsem.map[[id.gse]])) {
-        # 如果不存在，则初始化
-        monet_object$meta.data$gsem.map[[id.gse]] <- list(gsm = id.gsm)
-    } else {
-        # 如果存在，则追加 GSM ID
-        monet_object$meta.data$gsem.map[[id.gse]]$gsm <- unique(
-            c(monet_object$meta.data$gsem.map[[id.gse]]$gsm, id.gsm)
-        )
-    }
-    return(monet_object)
+AddGSEMData <- function(monet_object, gse_id, gsm_ids) {
+  # Ensure that gsem.map exists as a list in meta.data
+  if (is.null(monet_object$meta.data$gsem.map)) {
+    monet_object$meta.data$gsem.map <- list()
+  }
+  
+  # If the GSE ID already exists, append the GSM IDs; otherwise, create a new entry
+  if (gse_id %in% names(monet_object$meta.data$gsem.map)) {
+    monet_object$meta.data$gsem.map[[gse_id]] <- c(monet_object$meta.data$gsem.map[[gse_id]], gsm_ids)
+  } else {
+    monet_object$meta.data$gsem.map[[gse_id]] <- gsm_ids
+  }
+  
+  return(monet_object)
 }
 
 #' Add PMC Data to Monet Object
