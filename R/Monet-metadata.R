@@ -56,6 +56,29 @@ GetGSMMetadata <- function(monet_object, gsm_id = NULL) {
   subset(monet_object$meta.data$gsm.index, GSM_ID == gsm_id)
 }
 
+#' Add GSEM Data to Monet Object
+#'
+#' Add GSM IDs under a GSE in the Monet object.
+#'
+#' @param monet_object A Monet object.
+#' @param id.gse The GSE ID.
+#' @param id.gsm A vector of GSM IDs to associate with the GSE.
+#' @return The updated Monet object.
+#' @export
+AddGSEMData <- function(monet_object, id.gse, id.gsm) {
+    # 检查 GSE 是否已存在于 gsem.map
+    if (is.null(monet_object$meta.data$gsem.map[[id.gse]])) {
+        # 如果不存在，则初始化
+        monet_object$meta.data$gsem.map[[id.gse]] <- list(gsm = id.gsm)
+    } else {
+        # 如果存在，则追加 GSM ID
+        monet_object$meta.data$gsem.map[[id.gse]]$gsm <- unique(
+            c(monet_object$meta.data$gsem.map[[id.gse]]$gsm, id.gsm)
+        )
+    }
+    return(monet_object)
+}
+
 #' Add PMC Data to Monet Object
 #'
 #' Add or update PMC metadata in the Monet object.
