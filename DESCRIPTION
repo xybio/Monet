@@ -2,8 +2,9 @@ Package: Monet
 Type: Package
 Title: Efficient GEO Data Management Using Monet
 Version: 0.1.0
-Author: XYBio [aut, cre]
-Maintainer: XYBio
+Authors@R: 
+    person("Yibo", "Xi", email = "ybxi@qq.com", role = c("aut", "cre"))
+Maintainer: Yibo Xi <ybxi@qq.com>
 Description: Monet is an R package designed for efficient management and analysis of GEO data. It provides a streamlined workflow and custom object structures to simplify GEO data integration and visualization.
 License: GPL-3
 Encoding: UTF-8
