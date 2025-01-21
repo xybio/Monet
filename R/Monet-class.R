@@ -14,7 +14,7 @@ CreateMonetObject <- function(assays = list(), meta.data = list(), active.assay 
     meta.data = list(
       gse.index = meta.data$gse.index %||% data.frame(),
       gsm.index = meta.data$gsm.index %||% data.frame(),
-      gsem.map = meta.data$gsem.map %||% data.frame(),
+      gsem.map = meta.data$gsem.map %||% list(),
       pmc.index = meta.data$pmc.index %||% data.frame()
     ),
     active.assay = active.assay,
